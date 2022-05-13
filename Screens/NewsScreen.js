@@ -15,25 +15,34 @@ const NewsScreen = () => {
 
     const [activeIndex, setActiveIndex] = useState()
 
-    const windowHeight=Dimensions.get("window").height
+    
     const windowWidth=Dimensions.get("window").width
 
+    const carouselRef = React.useRef(null);
+
+    function handleCarouselScrollEnd(item, index) {
+        setActiveIndex(index)
+    }
+
     return (
-        <View style={styles.carousel}>
+        <View style={styles.view}>
             {
                 articles && (
                     <Carousel
-                    //layout = {'stack'}
+                    style={styles.carousel}
+                    //layout = {'default'}
                     data = {articles.slice(0,10)}
-                    containerWidth={windowWidth}
-                    //sliderHeight = {300}
-                    //itemHeight = {windowHeight}
-                    //vertical = {true}
+                    //ref={carouselRef}
                     renderItem = {({ item,index }) => (
                         <SingleNews item = {item} index = {index}/>
                     )}
-                    onSnapToItem = {index => setActiveIndex(index)}
-                    separatorWidth={0}
+                    //onSnapToItem = {index => setActiveIndex(index)}
+                    itemWidth={windowWidth*0.8}
+                    containerWidth={windowWidth} 
+                    separatorWidth={windowWidth*0.1}
+                    // onScrollEnd = {handleCarouselScrollEnd}
+                    // //separatorWidth={0}
+                    // //inActiveScale={0.8}
                     />
                 )
             }
@@ -42,10 +51,18 @@ const NewsScreen = () => {
 };
 
 const styles = StyleSheet.create({
-    carousel: {
+    view: {
         flex: 1,
         backgroundColor: "black",
-        transform:[{scaleY:-1}],
+        //transform:[{scaleY:-1}],
+        //flexGrow: 0,
+        //height: 150,
+        //height: 200
+    },
+    carousel: {
+        flex: 1,
+        //height: windowHeight,
+        
     },
 });
 
