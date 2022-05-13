@@ -11,15 +11,15 @@ const SingleNews = ({ item, index }) => {
     return (
         <View
             style={{
-                height: windowHeight,
-                width: windowWidth,
-                transform: [{ scaleY: -1 }],
+                height: windowHeight*0.85,
+                width: windowWidth*0.9,
+                //transform: [{ scaleY: -1 }],
 
             }}
         >
             <Image
                 source={{ uri: item.urlToImage }}
-                style={{ height: "45%", resizeMode: "cover", with: windowWidth }}
+                style={{ height: "45%", resizeMode: "cover", width: windowWidth }}
             />
             <View
                 style={{
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
     },
     footer: {
         height: 80,
-        width: windowWidth,
+        width: windowWidth*0.9,
         position: "absolute",
         bottom: 0,
         backgroundColor: "#d7be69",
