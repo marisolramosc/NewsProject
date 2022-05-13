@@ -30,6 +30,7 @@ const DiscoverScreen = () => {
                     </TouchableOpacity>
                 )}
                 containerWidth={windowWidth}
+
                 onSnapToItem = {index => setActiveIndex(index)}
                 separatorWidth={0}
                 itemWidth={windowWidth*0.8}
@@ -37,6 +38,7 @@ const DiscoverScreen = () => {
                 // activeSlideAligment={"start"}
                 // inactiveSlideScale={1}
                 // inactiveSlideOpacity={1}
+
             />
             {/*source*/}
         </View>

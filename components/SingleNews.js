@@ -19,7 +19,7 @@ const SingleNews = ({ item, index }) => {
         >
             <Image
                 source={{ uri: item.urlToImage }}
-                style={{ height: "45%", resizeMode: "cover", with: windowWidth }}
+                style={{ height: "45%", resizeMode: "cover", width: windowWidth }}
             />
             <View
                 style={{
