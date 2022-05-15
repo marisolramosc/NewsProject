@@ -1,7 +1,4 @@
-import React from "react";
-import { View, Text, StyleSheet, Dimensions, Image } from "react-native";
-import { ImageBackground } from "react-native";
-import { Linking, TouchableOpacity } from "react-native";
+import { View, Text, StyleSheet, Dimensions, Image, ImageBackground, Linking, TouchableOpacity } from "react-native";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
@@ -19,7 +16,7 @@ const SingleNews = ({ item, index }) => {
         >
             <Image
                 source={{ uri: item.urlToImage }}
-                style={{ height: "45%", resizeMode: "cover", width: windowWidth }}
+                style={{ height: "45%", resizeMode: "cover", width: windowWidth*0.9 }}
             />
             <View
                 style={{
