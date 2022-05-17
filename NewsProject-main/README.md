@@ -1,2 +1,0 @@
-# NewsProject
-# NewsProjectCopy
