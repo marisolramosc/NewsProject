@@ -1,35 +1,37 @@
+import { useContext } from "react";
 import { View, Text, StyleSheet, Dimensions, Image, ImageBackground, Linking, TouchableOpacity } from "react-native";
+import { NewsContext } from "../API/Context";
 
 const windowWidth = Dimensions.get("window").width;
 const windowHeight = Dimensions.get("window").height;
 
-const SingleNews = ({ item, index }) => {
-
+const SingleNews = ({ item, index, renderHeight }) => {
+    const {darkTheme} = useContext(NewsContext);
     return (
         <View
             style={{
-                height: windowHeight*0.85,
-                width: windowWidth*0.9,
+                height: windowHeight*renderHeight,
+                width: windowWidth,
                 //transform: [{ scaleY: -1 }],
 
             }}
         >
             <Image
                 source={{ uri: item.urlToImage }}
-                style={{ height: "45%", resizeMode: "cover", width: windowWidth*0.9 }}
+                style={{ height: "45%", resizeMode: "cover", width: windowWidth }}
             />
             <View
                 style={{
                     ...styles.description,
-                    backgroundColor: "#282C35",
+                    backgroundColor: darkTheme ? "#282C35" : "white",
                 }}
             >
-                <Text style={{ ...styles.title, color: "white" }}>{item.title}</Text>
-                <Text style={{ ...styles.content, color: "white" }}>
+                <Text style={{ ...styles.title, color: darkTheme ? "white" : "black"}}>{item.title}</Text>
+                <Text style={{ ...styles.content, color: darkTheme ? "white" : "black"}}>
                     {item.description}
                 </Text>
-                <Text style={{ color: "white" }}>
-                    Short by
+                <Text style={{ color: darkTheme ? "white" : "black"}}>
+                    Sort by
                     <Text> {item.autor ?? "unknown"}</Text>
                 </Text>
                 <ImageBackground
@@ -64,7 +66,7 @@ const styles = StyleSheet.create({
     },
     footer: {
         height: 80,
-        width: windowWidth*0.9,
+        width: windowWidth,
         position: "absolute",
         bottom: 0,
         backgroundColor: "#d7be69",

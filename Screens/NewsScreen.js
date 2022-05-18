@@ -34,10 +34,10 @@ const NewsScreen = () => {
                     data = {articles.slice(0,10)}
                     //ref={carouselRef}
                     renderItem = {({ item,index }) => (
-                        <SingleNews item = {item} index = {index}/>
+                        <SingleNews item = {item} index = {index} renderHeight = {0.85}/>
                     )}
                     //onSnapToItem = {index => setActiveIndex(index)}
-                    itemWidth={windowWidth*0.8}
+                    itemWidth={windowWidth}
                     containerWidth={windowWidth} 
                     separatorWidth={windowWidth*0.1}
                     // onScrollEnd = {handleCarouselScrollEnd}
